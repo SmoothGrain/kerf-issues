@@ -25,3 +25,7 @@ Out of scope (please use upstream channels):
 ## Response times
 
 Kerf is run by a small team. Typical response on public issues is a few business days. Security issues get an acknowledgement within 72 hours.
+
+## Contributing
+
+Issues and Discussions welcome. Small typo / clarity PRs welcome too. For anything larger, open an issue first. See [CONTRIBUTING.md](./CONTRIBUTING.md) for PR conventions and the attribution policy. Coding agents should also read [AGENTS.md](./AGENTS.md) before their first commit.

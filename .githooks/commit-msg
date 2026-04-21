@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Reject commit messages that credit AI assistants as co-authors.
+# Smoothgrain policy: agents/tools are never listed as contributors.
+# Enable with: git config core.hooksPath .githooks
+set -e
+
+MSG_FILE="$1"
+
+PATTERN='^Co-Authored-By:.*(claude|codex|copilot|cursor|aider|devin|gpt|anthropic|openai)'
+if grep -iqE "$PATTERN" "$MSG_FILE"; then
+  cat >&2 <<EOF
+
+error: commit message contains a Co-Authored-By trailer naming an AI tool.
+
+Smoothgrain policy: AI assistants and coding agents must never be listed
+as contributors on any repo (especially the public kerf-issues one).
+
+Remove the offending line and try again, or use git commit --amend.
+
+The trailer that tripped this check:
+$(grep -iE "$PATTERN" "$MSG_FILE" | sed 's/^/    /')
+EOF
+  exit 1
+fi
