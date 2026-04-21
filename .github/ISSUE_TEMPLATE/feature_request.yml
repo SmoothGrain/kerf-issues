@@ -1,0 +1,47 @@
+name: Feature request
+description: Suggest a new feature or improvement.
+title: "[Feature]: "
+labels: ["feature-request", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature. The best requests start from a specific problem rather than a specific solution — tell us what you're trying to do, and we'll work with you on how.
+
+        **Not sure whether to file an issue or start a discussion?** Discussions are better for open-ended exploration and upvotes; issues are better once you have a concrete thing to ask for.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: The underlying job or friction. Don't jump to the solution yet.
+      placeholder: "I maintain a static marketing site and I want to change button padding across every page without hand-editing the CSS."
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does this matter?
+      description: How often does it come up? What's the impact of not having this?
+      placeholder: "I update the design every few weeks. Without this, I'm making the same change in 8 places and missing one every time."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution (optional)
+      description: One idea for how it could work. We might land on something different.
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've considered (optional)
+      description: Workarounds, other tools, or different shapes of the feature.
+
+  - type: input
+    id: version
+    attributes:
+      label: Kerf version you're using
+      placeholder: "1.0.0"
